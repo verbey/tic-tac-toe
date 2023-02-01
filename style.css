@@ -1,0 +1,347 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+:root {
+	--main: #36393F;
+	--shade: #2c2f33;
+	--shade-two: #23272a;
+	--contrast: #ffffff;
+	--accent: #7289da;
+	--accent-shade: #6377BF;
+	--accent-shade-two: #5667A6;
+}
+
+html {
+	height: 100vh;
+}
+
+body {
+	height: 100%;
+	display: grid;
+	grid-template-rows: 4rem 1fr;
+	justify-items: center;
+	align-items: center;
+	background: var(--main);
+	color: var(--contrast);
+	font-family: sans-serif;
+	padding: 1vmin;
+	overflow: hidden;
+}
+
+.topMenu {
+	font-size: 3rem;
+}
+
+.boardContainer {
+	height: 80vmin;
+	width: 80vmin;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	gap: 3px;
+	padding: 3px;
+	background: var(--accent);
+}
+
+.boardContainer>div {
+	background: var(--main);
+	font-family: monospace;
+	font-size: calc(80vmin/4);
+	text-align: center;
+	user-select: none;
+}
+
+.formBg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.25);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+}
+
+form {
+	width: 40vw;
+	height: 60vh;
+	z-index: 3;
+	background-color: var(--shade);
+	box-shadow: 0 0 20px 8px var(--shade-two);
+	border: 1px solid var(--accent);
+	border-radius: 10px;
+	display: grid;
+	grid-template-rows: 3rem 1fr 3rem;
+	padding: 2vh 2vw;
+	align-items: center;
+	justify-items: center;
+	font-size: 2rem;
+	gap: 2vh;
+}
+
+.vsCont {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+	justify-items: center;
+	gap: 2vw;
+}
+
+.inputCont,
+.sideCont {
+	display: flex;
+	flex-direction: column;
+	gap: 2vh;
+	align-items: center;
+	justify-content: center;
+}
+
+input[type="text"] {
+	border: 0;
+	background: var(--accent);
+	color: var(--contrast);
+	font-size: 1.5rem;
+	width: 100%;
+	border-radius: 10px;
+	height: 2rem;
+}
+
+input[type="checkbox"] {
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+	margin: 0;
+}
+
+button {
+	border: none;
+	border-radius: 10px;
+	background-color: var(--accent);
+	color: var(--contrast);
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: var(--accent-shade);
+}
+
+button:active {
+	background-color: var(--accent-shade-two);
+}
+
+button[type="submit"] {
+	font-size: 2rem;
+	padding: 1vh 1vw;
+}
+
+.menu {
+	width: 80vmin;
+	display: grid;
+	grid-template-columns: 1fr 6rem;
+	gap: 1vw;
+	align-items: center;
+	padding: 1vmin;
+}
+
+.newGameBtn {
+	font-size: 2rem;
+	padding: 1vh 1vw;
+	height: calc(2rem+1vh);
+}
+
+.menuText {
+	padding: 1vmin;
+	font-size: 1.5rem;
+}
+
+.winCell {
+	animation: tada 2s infinite;
+	border: 3px solid var(--accent)
+}
+
+.falling {
+	animation: hinge 2s;
+}
+
+@keyframes tada {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	10%,
+	20% {
+		transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+	}
+
+	30%,
+	50%,
+	70%,
+	90% {
+		transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+	}
+
+	40%,
+	60%,
+	80% {
+		transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes hinge {
+	0% {
+		animation-timing-function: ease-in-out;
+	}
+
+	20%,
+	60% {
+		transform: rotate3d(0, 0, 1, 80deg);
+		animation-timing-function: ease-in-out;
+	}
+
+	40%,
+	80% {
+		transform: rotate3d(0, 0, 1, 60deg);
+		animation-timing-function: ease-in-out;
+		opacity: 1;
+	}
+
+	to {
+		transform: translate3d(0, 700px, 0);
+		opacity: 0;
+	}
+}
