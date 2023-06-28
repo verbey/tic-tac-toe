@@ -25,7 +25,7 @@ const Gameboard = (() => {
 				if (immutable === false) {
 					cell.addEventListener("click", () => {
 						const boardCell = Gameboard.board[i][j];
-						if (boardCell === " ") {
+						if (boardCell === " " && Game.nextPlayer().isBot === false) {
 							const sign = Game.nextPlayer().sign;
 							Game.turns++;
 							// I know this looks stupid as hell but boardCell only contains the value of the cell whilst a reference would be needed for an actual change
