@@ -295,21 +295,14 @@ const Bot = (() => {
 			let scores = [];
 			let moves = [];
 
-			let newBoard = [[], [], []];
 			for (let i = 0; i < 3; i++) {
 				for (let j = 0; j < 3; j++) {
-					newBoard[i][j] = board[i][j];
-				}
-			}
-
-			for (let i = 0; i < 3; i++) {
-				for (let j = 0; j < 3; j++) {
-					if (newBoard[i][j] === " ") {
+					if (board[i][j] === " ") {
 						const move = Move(i, j);
-						newBoard[move.row][move.col] = playerSign;
-						scores.push(Bot.minimax(newBoard, depth, Bot.inverseSign(playerSign), !isPlayerTurn));
+						board[move.row][move.col] = playerSign;
+						scores.push(Bot.minimax(board, depth, Bot.inverseSign(playerSign), !isPlayerTurn));
 						moves.push(move);
-						newBoard[move.row][move.col] = " ";
+						board[move.row][move.col] = " ";
 					}
 				}
 			}
