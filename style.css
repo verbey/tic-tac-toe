@@ -193,8 +193,8 @@ body {
 }
 
 form {
-	width: 40vw;
-	height: 60vh;
+	width: max(40vw, 400px);
+	height: max(60vh, 350px);
 	z-index: 3;
 	background-color: var(--shade);
 	box-shadow: 0 0 20px 8px var(--shade-two);
