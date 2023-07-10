@@ -147,9 +147,7 @@ const Game = (() => {
 			const cellNodes = Array.from(Gameboard.node.children);
 			let cells = [[], [], []];
 			for (let i = 0; i < cellNodes.length; i++) {
-				const m = Math.floor(i / 3);
-				const n = Math.floor(i - Math.floor(i / 3) * 3);
-				cells[m][n] = cellNodes[i];
+				cells[Math.floor(i / 3)][Math.floor(i - Math.floor(i / 3) * 3)] = cellNodes[i];
 			}
 			condition.forEach((index) => {
 				const indexArr = index.split("");
