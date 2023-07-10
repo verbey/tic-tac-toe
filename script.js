@@ -9,7 +9,7 @@ const Player = (sign, name, isBot) => {
 };
 
 const Gameboard = (() => {
-	let board = [["x", "o", "x"], ["x", "o", "x"], ["o", "x", "o"]];
+	let board = [[], [], []];
 	let node;
 
 	const display = (immutable) => {
